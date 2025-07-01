@@ -1,0 +1,10 @@
+[package]
+name = "text-to-image"
+version = "0.1.0"
+edition = "2024"
+authors = ["Benjamin Massey <benjamin.w.massey@gmail.com>"]
+description = "Example for text to image with outline."
+
+[dependencies]
+text-to-png = "0.2.0"
+image_outline = { path = "../.." }
