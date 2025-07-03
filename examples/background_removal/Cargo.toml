@@ -1,0 +1,8 @@
+[package]
+name = "background_removal"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+image_outline = { path = "../.." }
+rmbg = { git = "https://github.com/BenjaminMassey/rmbg", rev = "fa04831630473324845392e417518be343c1472a" }

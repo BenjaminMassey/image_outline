@@ -4,11 +4,11 @@
 [![dependency-status](https://deps.rs/repo/github/BenjaminMassey/image_outline/status.svg)](https://deps.rs/repo/github/BenjaminMassey/image_outline)
 
 # image_outline
-Copyright &copy; 2025 Benjamin Massey (Version 0.1.0)
+Copyright &copy; 2025 Benjamin Massey (Version 0.1.1)
 
 `image_outline`: a barebones method for adding outline pixels to an image.
 
-## Example
+## Example Code
 
 ```rust
 let original = image::ImageReader::open("input.png")
@@ -19,13 +19,34 @@ let outlined = image_outline::outline_rgba8(
     &original.to_rgba8(),
     None,
     (0, 0, 0),
-    false,
-    false,
-);
+); // outline transparent background image with black
 outlined.save("output.png").expect("Image save failure.");
 ```
 
+## Example Result
 
-# License
+![input](docs/input.png)
+
+transforms into
+
+![output](docs/output.png)
+
+## Approach
+
+This crate is described as a "barebones" method because it does nearly nothing
+to understand the actual structure of an image. Instead, it cycles through an
+image pixel-by-pixel, checks if said pixel is surrounded by a given "background
+pixel" (either transparency or given color), and replaces said pixel with a given
+outline color, if so.
+
+This is intended for rather simple scenarios where the type of image data is
+rather well defined within a project. The project `text-to-image` in the
+`examples` folder was the original intention of this project, and thus
+demonstrates this the best. We can safely assume that the generated white-text
+image only contains joined white pixels and transparent pixels, as defined by
+how `text-to-png` functions (in consideration of our usage). More complex
+outlining scenarios will need more complex approaches.
+
+## License
 
 This work is licensed under the "[MIT License](https://opensource.org/license/mit)".
