@@ -20,9 +20,9 @@ transforms into
 
 This crate is described as a "barebones" method because it does nearly nothing
 to understand the actual structure of an image. Instead, it cycles through an
-image pixel-by-pixel, checks if said pixel is surrounded by a given "background
-pixel" (either transparency or given color), and replaces said pixel with a given
-outline color, if so.
+image pixel-by-pixel and checks if said pixel is a "foreground" pixel. If so, it
+checks for surrounding "background" pixels (based on either transparency or
+given color), and replaces these background pixels with the given outline color.
 
 This is intended for rather simple scenarios where the type of image data is
 rather well defined within a project. The project `text-to-image` in the

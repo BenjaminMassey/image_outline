@@ -9,6 +9,7 @@ fn main() {
         &original.to_rgba8(),
         None,
         (0, 0, 0),
+        1,
     );
     outlined.save("output.png").expect("Image save failure.");
 }

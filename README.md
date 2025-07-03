@@ -4,7 +4,7 @@
 [![dependency-status](https://deps.rs/repo/github/BenjaminMassey/image_outline/status.svg)](https://deps.rs/repo/github/BenjaminMassey/image_outline)
 
 # image_outline
-Copyright &copy; 2025 Benjamin Massey (Version 0.1.1)
+Copyright &copy; 2025 Benjamin Massey (Version 0.1.2)
 
 `image_outline`: a barebones method for adding outline pixels to an image.
 
@@ -19,7 +19,8 @@ let outlined = image_outline::outline_rgba8(
     &original.to_rgba8(),
     None,
     (0, 0, 0),
-); // outline transparent background image with black
+    1,
+); // outline transparent background image with one "wide" black pixels
 outlined.save("output.png").expect("Image save failure.");
 ```
 
@@ -35,9 +36,9 @@ transforms into
 
 This crate is described as a "barebones" method because it does nearly nothing
 to understand the actual structure of an image. Instead, it cycles through an
-image pixel-by-pixel, checks if said pixel is surrounded by a given "background
-pixel" (either transparency or given color), and replaces said pixel with a given
-outline color, if so.
+image pixel-by-pixel and checks if said pixel is a "foreground" pixel. If so, it
+checks for surrounding "background" pixels (based on either transparency or
+given color), and replaces these background pixels with the given outline color.
 
 This is intended for rather simple scenarios where the type of image data is
 rather well defined within a project. The project `text-to-image` in the

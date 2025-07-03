@@ -11,7 +11,8 @@ fn main() {
     let outlined = image_outline::outline_rgba8(
         &without_bg.to_rgba8(),
         None,
-        (0, 0, 0),
+        (255, 0, 0),
+        5,
     );
     outlined.save("output.png").expect("Image save failure.");
 }

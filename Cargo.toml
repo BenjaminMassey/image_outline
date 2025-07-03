@@ -1,6 +1,6 @@
 [package]
 name = "image_outline"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 authors = ["Benjamin Massey <benjamin.w.massey@gmail.com>"]
 description = "a barebones method for adding outline pixels to an image."

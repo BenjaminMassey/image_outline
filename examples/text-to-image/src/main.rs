@@ -6,6 +6,7 @@ fn main() {
         &text_image,
         None,
         (0, 0, 0),
+        1,
     );
     let _ = result.save("output.png");
 }
